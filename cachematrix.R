@@ -1,25 +1,25 @@
 # get an appropriate variable for a matrix
-# the variable x constitute for the name of the given matrix
+# the variable x constitutes for the name of the given matrix
 makeCacheMatrix <- function(x = matrix()) {
-  inverse <- NULL
-  set <- function(y) {
+  Inverse <- NULL
+  put <- function(y) {
     x <<- y
   }
   get <- function() (x)
-  setInverse <- function(inverse)(inv <<- inverse)
-  getInverse <- function() (inv)
-  list(set = set, get = get, setInverse = setInverse, getInverse = getInverse)
+  putInv <- function(Inverse)(Inv <<- Inverse)
+  obtainInv <- function() (Inv)
+  list(put = put,  obtain =  obtain, putInv = putInv, obtainInv = obtainInv)
 }
  # remaining the given value of the inverse
 cacheSolve <- function(x, ...) {
-  inv <- x$getInverse()
-  if(!is.null(inv)) {
+  Inv <- x$obtainInv()
+  if(!is.null(Inv)) {
     message("getting cached data")
-    return(inv)
+    return(Inv)
   }
   mat <- x$get()
-  inv <- solve(mat, ...)
-  x$setInverse(inv)
-  inv
+  Inv <- solve(mat, ...)
+  x$putInverse(Inv)
+  Inv
  }
 # come back into the inverse of the given variable x matrix
